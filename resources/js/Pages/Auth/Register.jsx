@@ -22,10 +22,13 @@ export default function Register() {
     };
 
     return (
-        <GuestLayout>
+        <div className="min-h-screen flex flex-col justify-center bg-gray-50">
             <Head title="Register" />
 
-            <form onSubmit={submit}>
+            <form
+                onSubmit={submit}
+                className="w-full max-w-sm mx-auto mt-8 border border-gray-200 p-6 rounded-xl"
+            >
                 <div>
                     <InputLabel htmlFor="name" value="Name" />
 
@@ -115,6 +118,6 @@ export default function Register() {
                     </PrimaryButton>
                 </div>
             </form>
-        </GuestLayout>
+        </div>
     );
 }

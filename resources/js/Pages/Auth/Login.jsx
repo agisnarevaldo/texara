@@ -22,7 +22,7 @@ export default function Login({ status, canResetPassword }) {
     };
 
     return (
-        <GuestLayout>
+        <div className="min-h-screen flex flex-col justify-center bg-gray-50">
             <Head title="Log in" />
 
             <h2 className="text-center text-2xl font-bold">Selamat Datang</h2>
@@ -33,7 +33,10 @@ export default function Login({ status, canResetPassword }) {
                 </div>
             )}
 
-            <form onSubmit={submit}>
+            <form
+                onSubmit={submit}
+                className="w-full max-w-sm mx-auto mt-8 border border-gray-200 p-6 rounded-xl"
+            >
                 <div>
                     <InputLabel htmlFor="email" value="Email" />
 
@@ -82,7 +85,8 @@ export default function Login({ status, canResetPassword }) {
                     </label>
                 </div>
 
-                <div className="mt-4 flex items-center justify-end">
+                <div className="mt-4 flex items-center justify-between">
+
                     {canResetPassword && (
                         <Link
                             href={route('password.request')}
@@ -92,11 +96,18 @@ export default function Login({ status, canResetPassword }) {
                         </Link>
                     )}
 
+                    <Link
+                        href={route('register')}
+                        className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ms-4"
+                    >
+                        Register
+                    </Link>
+
                     <PrimaryButton className="ms-4" disabled={processing}>
                         Log in
                     </PrimaryButton>
                 </div>
             </form>
-        </GuestLayout>
+        </div>
     );
 }
